@@ -13,6 +13,13 @@ public class Flight {
 	private Integer seatCapacity;
 	private String departure;
 	private String arrival;
+	private String CarrierName;
+	public String getCarrierName() {
+		return CarrierName;
+	}
+	public void setCarrierName(String carrierName) {
+		CarrierName = carrierName;
+	}
 	public Long getFlightNumber() {
 		return flightNumber;
 	}
@@ -49,5 +56,7 @@ public class Flight {
 	public void setArrival(String arrival) {
 		this.arrival = arrival;
 	}
+
+	
 }
 	

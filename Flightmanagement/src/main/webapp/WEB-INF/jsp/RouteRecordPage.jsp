@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -43,35 +44,25 @@
 
 <div class="table-container">
     <h2>All Routes</h2>
+    <br/>
     <table>
-        <thead>
             <tr>
                 <th>Route Number</th>
                 <th>Source Airport Code</th>
                 <th>Target Airport Code</th>
-                <th>Route Fair</th>
+                <th>RouteFair</th>
             </tr>
-        </thead>
-        <tbody>
-            <!-- Sample data rows, replace with dynamic data as needed -->
-            <tr>
-                <td>1</td>
-                <td>JFK</td>
-                <td>LAX</td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>ATL</td>
-                <td>ORD</td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>SFO</td>
-                <td>SEA</td>
-            </tr>
-        </tbody>
+			<c:forEach items="${routeList}" var="route">
+ 				<tr>
+ 				<td>${route.routeId}</td>
+                <td>${route.sourceAirportCode}</td>
+                <td>${route.destinationAirportCode}</td>
+                <td>${route.fair}</td>
+                </tr>
+                </c:forEach>
     </table>
-    <button type="button" onclick="/index">Return</button>
+    <br/><br/>
+    <a href="/index">Return</a>
 </div>
 
 </body>

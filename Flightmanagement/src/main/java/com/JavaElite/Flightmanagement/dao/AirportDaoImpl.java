@@ -32,7 +32,7 @@ public class AirportDaoImpl implements AirportDao {
 	}
 	
 	@Override
-	public List<String> findAllAirportCodes(){
+	public List<String> findAllAirportLocations(){
 		return repository.FindAllAirportCodes();
 	}
 	@Override

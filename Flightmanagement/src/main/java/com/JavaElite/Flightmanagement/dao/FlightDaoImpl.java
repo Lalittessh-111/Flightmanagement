@@ -19,7 +19,6 @@ public class FlightDaoImpl implements FlightDao {
 	}
 
 	public List<Flight> findAllFlights() {
-		// TODO Auto-generated method stub
 		return flightrepo.findAll();
 	}
 	

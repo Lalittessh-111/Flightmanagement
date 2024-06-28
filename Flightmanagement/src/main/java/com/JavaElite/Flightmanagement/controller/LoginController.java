@@ -47,24 +47,8 @@ public class LoginController {
     }
 
     @GetMapping("/loginPage")
-    public ModelAndView showLoginPage(@RequestParam(value = "error", required = false) String error) {
+    public ModelAndView showLoginPage() {
         ModelAndView mv = new ModelAndView("loginPage");
-        if (error != null) {
-            mv.addObject("error", "Invalid username or password.");
-        }
-        return mv;
-    }
-
-    @PostMapping("/loginPage")
-    public ModelAndView handleLoginPage(@RequestParam(value = "username") String username, 
-                                        @RequestParam(value = "password") String password) {
-        ModelAndView mv = new ModelAndView("loginPage");
-        FlightUser user = service.findByUsername(username);
-        if (user != null && bCrypt.matches(password, user.getPassword())) {
-            mv.setViewName("index"); // or another page indicating successful login
-        } else {
-            mv.addObject("error", "Invalid username or password.");
-        }
         return mv;
     }
 

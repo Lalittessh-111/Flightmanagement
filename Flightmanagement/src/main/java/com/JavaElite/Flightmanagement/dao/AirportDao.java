@@ -8,7 +8,8 @@ public  interface AirportDao {
 	public  void addAirport(Airport airport);
 	public Airport findAirportById(String id);
 	public List<Airport>  findAllAirports();
-    public List<String> findAllAirportCodes();
+    public List<String> findAllAirportLocations();
 	public String findAirportCodeByLocation(Object getSourceAirportCode);
+
 	
 }

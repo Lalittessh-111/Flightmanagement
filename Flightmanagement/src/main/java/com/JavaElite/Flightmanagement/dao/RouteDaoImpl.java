@@ -33,7 +33,7 @@ public class RouteDaoImpl implements RouteDao {
 		return repository.findRouteBySourceAndDestination(source, destination);
 	}
 	@Override
-	public Long findRouteBySourceAndDestionation(String source, String destination) {
+	public Route findRouteBySourceAndDestionation(String source, String destination) {
 		// TODO Auto-generated method stub
 		return null;
 	}

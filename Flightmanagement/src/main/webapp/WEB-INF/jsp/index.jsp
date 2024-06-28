@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -78,33 +81,37 @@
         <h1 id="h11">Welcome to the Flight Management System</h1>
     </div>
    
-    <div class="nav">
-        <div class="dropdown">
-            <a href="#" class="dropbtn">Airport</a>
-            <div class="dropdown-content">
-                <a href="/airport">Add Airport</a>
-                <a href="/airportShow">View Airports</a>
-            </div>
+  
+    <div class="dropdown">
+<button class="dropbtn">Airport </button>
+<div class="dropdown-content">
+<a href="/airport">Airport Addition</a>
+<a href="/airports">Airport Records</a>
+</div>
+</div>
+ <div class="dropdown">
+        <button class="dropbtn">Route</button>
+        <div class="dropdown-content">
+            <a href="/Route">Route Addition</a>
+            <a href="/Routes">Routes Records</a>
         </div>
-        
-        <div class="dropdown">
-            <a href="#" class="dropbtn">Flight</a>
-            <div class="dropdown-content">
-                <a href="/addFlight">Add Flight</a>
-                <a href="/viewFlights">View Flights</a>
-            </div>
-        </div>
-        
-        <div class="dropdown">
-            <a href="#" class="dropbtn">Route</a>
-            <div class="dropdown-content">
-                <a href="/addRoute">Add Route</a>
-                <a href="/viewRoutes">View Routes</a>
-            </div>
-        </div>
-        
-        <a href="/loginPage">Logout</a>
     </div>
+<div class="dropdown">
+        <button class="dropbtn">Flight</button>
+	<div class="dropdown-content">
+            <a href="/flight">Flight Addition</a>
+            <a href="/flights">Flight Records</a>
+        </div>
+        </div>
+<div class="dropdown">
+        <button class="dropbtn">Flight Booking</button>
+	<div class="dropdown-content">
+            <a href="/flights-search">Flight Search</a>
+             </div>
+        </div>
+<div class="dropdown">
+        <a href="/loginPage">Logout</a>
+        </div>  
 
 </body>
 </html>

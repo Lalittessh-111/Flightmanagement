@@ -1,88 +1,73 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <title>Flight Booking</title>
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-        }
-        .form-container {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            width: 300px;
-        }
-        .form-container h2 {
-            margin-bottom: 20px;
-            text-align: center;
-        }
-        .form-container div {
-            margin-bottom: 15px;
-        }
-        .form-container label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: bold;
-        }
-        .form-container input[type="text"],
-        .form-container input[type="number"] {
-            width: 100%;
-            padding: 8px;
-            box-sizing: border-box;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-        .form-container button {
-            width: 100%;
-            padding: 10px;
-            margin-top: 10px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-        .form-container button[type="submit"] {
-            background-color: #4CAF50;
-            color: white;
-        }
-        .form-container button[type="button"] {
-            background-color: #f44336;
-            color: white;
-        }
-    </style>
+<meta charset="ISO-8859-1">
+<title>View Airports</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 20px;
+    }
+    .container {
+        background-color: #fff;
+        padding: 20px 30px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    h2 {
+        margin-bottom: 20px;
+        text-align: center;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    table, th, td {
+        border: 1px solid #ccc;
+    }
+    th, td {
+        padding: 10px;
+        text-align: left;
+    }
+    th {
+        background-color: #f4f4f4;
+    }
+    a {
+        text-decoration: none;
+        display: block;
+        text-align: center;
+        margin-top: 10px;
+        color: #007bff;
+    }
+</style>
 </head>
 <body>
+<div align="center">
+<h1><u><i>All Airports</i></u></h1>
+<br/>
+<table>
+<tr>
+<th>Airport Code</th>
+<th>Airport Location</th>
+<th>Enquire</th>
+</tr>
+<c:forEach items="${abc}" var="airport">
+<tr>
+<td>${airport.airportCode}</td>
+<td>${airport.airportLocation}</td>
+<td><a href="/airport/${airport.airportCode}">Enquire</a></td>
+</tr>
+</c:forEach>
 
-<div class="form-container">
-    <h2>Flight Booking Form</h2>
-    <form:form action="/airports" method="post" modelAttribute="flight">
-        <div>
-            <label for="flightNumber">Flight Number:</label>
-            <form:input type="text" id="flightNumber" path="flightNumber" />
-        </div>
-        <div>
-            <label for="airline">Airline:</label>
-            <form:input type="text" id="airline" path="airline" />
-        </div>
-        <div>
-            <label for="seatCapacity">Seat Capacity:</label>
-            <form:input type="number" id="seatCapacity" path="seatCapacity" />
-        </div>
-        <div>
-            <button type="submit">Submit</button>
-            <a href="/index">Return</a>
-        </div>
-    </form:form>
+</table>
+<br/><br/>
+<a href="/index">Return</a>
+</h3>
 </div>
-
 </body>
 </html>

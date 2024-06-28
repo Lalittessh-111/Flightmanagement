@@ -16,7 +16,7 @@ import com.JavaElite.Flightmanagement.dao.AirportDao;
 import java.util.List;
 
 @RestController
-public class FlightManagementController {
+public class AirportController {
 
     @Autowired
     private AirportDao airportDao;
@@ -25,7 +25,7 @@ public class FlightManagementController {
 
     @GetMapping("/airport")
     public ModelAndView showAirportEntryPage() {
-        Airport airport = new Airport();
+    	Airport airport = new Airport();
         ModelAndView mv = new ModelAndView("airportEntryPage");
         mv.addObject("airportRecord", airport);
         return mv;
@@ -52,7 +52,8 @@ public class FlightManagementController {
     public ModelAndView showAirportRecordPage() {
     	List<Airport> airportList=airportDao.findAllAirports();
         ModelAndView mv = new ModelAndView("airportRecordPage");
-        mv.addObject("airportList", airportList);
+        mv.addObject("abc",airportList);
+
         return mv;
 
     }

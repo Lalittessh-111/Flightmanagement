@@ -3,6 +3,8 @@ package com.JavaElite.Flightmanagement.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,10 +18,11 @@ import com.JavaElite.Flightmanagement.bean.Route;
 import com.JavaElite.Flightmanagement.dao.AirportDao;
 import com.JavaElite.Flightmanagement.dao.FlightDao;
 import com.JavaElite.Flightmanagement.dao.RouteDao;
+import com.JavaElite.Flightmanagement.exception.RouteException;
 import com.JavaElite.Flightmanagement.service.FlightService;
 import com.JavaElite.Flightmanagement.service.RouteService;
 
-
+@ControllerAdvice
 @RestController
 public class RouteController {
  @Autowired
@@ -43,7 +46,7 @@ public class RouteController {
  		return mv;
  	}
  	 @PostMapping("/Route")
- 	public ModelAndView saveRoutes(@ModelAttribute("RouteRecord") Route route1) {
+ 	public ModelAndView saveRoutes(@ModelAttribute("RouteRecord") Route route1 ,Double Fair){
  		 String source=route1.getSourceAirportCode().toUpperCase();
  		 String destination=route1.getDestinationAirportCode().toUpperCase();
  		 route1.setSourceAirportCode(source);
@@ -52,36 +55,17 @@ public class RouteController {
  		 String destinationCode=airportDao.findAirportCodeByLocation(route1.getDestinationAirportCode());
  		 route1.setSourceAirportCode(sourceCode);
  		 route1.setDestinationAirportCode(destinationCode);
- 		 Route route2=routeService.createReturnRoute(route1);
+ 		 Route route2=routeService.createReturnRoute(route1,Fair);
  		 routeDao.save(route1);
  		 routeDao.save(route2);
  		 return new ModelAndView("/index");
  	 }
  	@GetMapping("/Routes")
  	public ModelAndView showRouteRecordPage() {
- 		Long newRouteId=routeDao.generateRouteId();
- 		Route route=new Route();
- 		route.setRouteId(newRouteId);
+ 		List<Route> routeList=routeDao.findAllRoutes();
  		ModelAndView mv=new ModelAndView("RouteRecordPage");
- 		mv.addObject("RouteRecord",route);
+ 		mv.addObject("RouteRecord",routeList);
  		return mv;
-}
- 	@PostMapping("/Routes")
-    public ModelAndView saveRoutes(@ModelAttribute("RouteRecords") List<Route> routes) {
-        for (Route route : routes) {
-            String source = route.getSourceAirportCode().toUpperCase();
-            String destination = route.getDestinationAirportCode().toUpperCase();
-            route.setSourceAirportCode(source);
-            route.setDestinationAirportCode(destination);
-            String sourceCode = airportDao.findAirportCodeByLocation(route.getSourceAirportCode());
-            String destinationCode = airportDao.findAirportCodeByLocation(route.getDestinationAirportCode());
-            route.setSourceAirportCode(sourceCode);
-            route.setDestinationAirportCode(destinationCode);
-            Route returnRoute = routeService.createReturnRoute(route);
-            routeDao.save(route);
-            routeDao.save(returnRoute);
-        }
-        return new ModelAndView("/index");
 }
  	 @GetMapping("/flight")
      public ModelAndView showFlightEntryPage() {
@@ -104,8 +88,39 @@ public class RouteController {
      public ModelAndView showFlightRecordPage() {
      	List<Flight> flightList=FlightDao.findAllFlights();
          ModelAndView mv = new ModelAndView("FlightRecordPage");
-         mv.addObject("Flight List", flightList);
+         mv.addObject("flightList", flightList);
          return mv;
-
      }
+
+     @GetMapping("/flights-search")
+     public ModelAndView showFlightSelectPage() {
+     	List<String> airportList=airportDao.findAllAirportLocations();
+         ModelAndView mv = new ModelAndView("FlightSelectPage");
+         mv.addObject("airportList", airportList);
+         return mv;
+     }
+     
+     @PostMapping("/flights-search")
+     public ModelAndView showRouteFlightPage(@RequestParam("from_city") String fromCity, @RequestParam("to_city") String toCity, Object flightList) {
+    	 String fromAirport=airportDao.findAirportCodeByLocation(fromCity);
+    	 String toAirport=airportDao.findAirportCodeByLocation(toCity);
+    	 if(fromAirport.equalsIgnoreCase(toAirport))
+    		 throw new RouteException();
+    	 Route route=routeDao.findRouteBySourceAndDestionation(fromAirport, toAirport);
+    	 ModelAndView mv=new ModelAndView("routeFlightShowPage");
+    	 mv.addObject("flightList",flightList);
+    	 mv.addObject("fromAirport", fromCity);
+    	 mv.addObject(toAirport, toCity);
+    	 mv.addObject("fair", route.getFair());
+    	 return mv;
+     }
+     
+     @ExceptionHandler(value = RouteException.class)
+      public ModelAndView handlingRouteException(RouteException exception) {
+    	 String message="From-City & To-City cannot be the same ......";
+    	 ModelAndView mv=new ModelAndView("routeErrorPage");
+    	 mv.addObject("errormessage",message);
+    	 return mv;
+     }
+
 }

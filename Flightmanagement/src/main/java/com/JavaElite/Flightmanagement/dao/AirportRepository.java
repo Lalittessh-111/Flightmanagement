@@ -1,6 +1,7 @@
 package com.JavaElite.Flightmanagement.dao;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -12,4 +13,5 @@ public  interface AirportRepository extends JpaRepository<Airport, String> {
 		public List<String> FindAllAirportCodes();
 		@Query("select airportCode from Airport where airportLocation=?1")
 		public String findAirportCodeByLocation(String airportLocation);
+		public List<Airport> findByAirportLocation(String sourceAirport);
 }

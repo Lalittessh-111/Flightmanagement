@@ -7,7 +7,7 @@ public interface RouteDao {
  public void save(Route route);
  public List<Route> findAllRoutes();
  public Route findRouteById(Long id);
- public Long findRouteBySourceAndDestionation(String source, String destination);
+ public Route findRouteBySourceAndDestionation(String source, String destination);
  public Long generateRouteId();
 public List<Long> findAllRoutesId();
 }

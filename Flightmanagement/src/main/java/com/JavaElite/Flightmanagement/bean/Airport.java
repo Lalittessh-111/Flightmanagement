@@ -30,4 +30,9 @@ public class Airport {
 	public void setAirportLocation(String airportLocation) {
 		this.airportLocation = airportLocation;
 	}
+	@Override
+	public String toString() {
+		return "Airport [airportCode=" + airportCode + ", airportLocation=" + airportLocation + "]";
+	}
+	
 }

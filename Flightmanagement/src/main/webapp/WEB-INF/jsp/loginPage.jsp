@@ -78,11 +78,8 @@
 <div class="container" id="login">
     <header>Flight Reservation System SignIn</header>
 
-    <c:if test="${not empty error}">
-        <div class="error">${error}</div>
-    </c:if>
-
-    <form:form action="/loginPage" method="post">
+<c:url value="/login" var="login"/>
+<form:form action="${login}" method="post">
         <label for="username">Username:</label>
         <input type="text" id="username" name="username" required>
 

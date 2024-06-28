@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -45,31 +46,22 @@
     }
 </style>
 </head>
-<body  >
- 
- <h2>All Airports Data</h2>
-  
-    <table border="1">
-        <thead>
-            <tr>
-                <th>Airport_Code</th>
-                <th>Airport_Location</th>
-                <th>Enquire</th>
-            </tr>
-        </thead>
-        <tbody>
-            <c:forEach items="${airportsdata}" var="data">
-                <tr>
-                    <td>${data.airportCode}</td>
-                    <td>${data.airportLocation}</td>
-                   	<td><a href="/airportShow/${data.airportCode}">Enquire</a></td>
-                </tr>
-            </c:forEach>
-        </tbody>
+<body>
+<div align ="center">
+ <i><h1>Airport Details</h1></i>
+    <table>
+        <tr>
+        <h1>
+            <td>Airport Code:</td>
+            <td>${airport.airportCode}</td>
+        </tr>
+        <tr>
+            <td>Airport Location:</td>
+            <td>${airport.airportLocation}</td>
+        </tr>
+        </h1>
     </table>
-   
-    <br>
-    <br>
- <a href="/index">Return</a>
+    <br/><br/>
+   <a href="index">Back to Home</a>
 </body>
 </html>
