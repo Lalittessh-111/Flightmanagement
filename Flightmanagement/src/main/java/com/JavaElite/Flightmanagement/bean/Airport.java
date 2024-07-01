@@ -7,7 +7,6 @@ import javax.persistence.Id;
 public class Airport {
 	public Airport() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 	public Airport(String airportCode, String airportLocation) {
 		super();

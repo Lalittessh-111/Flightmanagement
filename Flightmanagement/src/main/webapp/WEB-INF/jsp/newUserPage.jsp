@@ -73,63 +73,60 @@
          background-position: center;
          background-size:cover;
     }
-    #email{
-        width: 80%;
-        padding: 10px;
-        margin: 10px 0;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        box-sizing: border-box;
-    }
-    #user_type{
-        width: 80%;
-        padding: 10px;
-        margin: 10px 0;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        box-sizing: border-box;
-        text-align:center;
-    }
-    a:hover{
-    color:red;
-    }  
 </style>
-</head>
+<script type="text/javascript">
+    function passwordCheck() {
+        var pass1 = document.getElementById("pass1").value;
+        var pass2 = document.getElementById("pass2").value;
 
+        if (pass1.length < 6) {
+            alert("Password must be minimum 6 characters long");
+        } else if (pass1 === pass2) {
+            document.getElementById("registrationForm").submit();
+        } else {
+            alert("Passwords do not match");
+        }
+    }
+</script>
+</head>
 <body>
 
 <div class="container" id="reg">
     <header>Flight Reservation System</header>
 
     <h2>Create New Account</h2>
-
-<form:form action="/register" method="post">
-  <label for="username"> </label>
-  <input type="text" id="username" name="username" required placeholder="Enter Username">
-
-  <label for="email"> </label>
+    <form:form id="registrationForm" action="/register" method="post" modelAttribute="userRecord">
+        <div class="form-group">
+            <label for="username" class="form-label">Enter New User Id:</label>
+            <form:input path="username" id="username" class="form-control" placeholder="Username" />
+        </div>
+           <div class="form-group">
+        <label for="email"> </label>
   <input type="email" id="email" name="email" required placeholder="Enter Email">
-
-  <label for="password"> </label>
-  <input type="password" id="password" name="password" required placeholder="Enter Password">
-
-  <label for="confirm_password"> </label>
-  <input type="password" id="confirm_password" name="confirm_password" required placeholder="Confirm password">
-  
-<div id="usertype">
-<select id="user_type" name="user_type" required>
-  <option value="" disabled selected>USER TYPE</option>
-  <option value="customer">Customer</option>
-  <option value="admin">Admin</option>
-</select>
-</div>
-  <button type="submit">Register</button>
-  <button type="submit">Login</button>
-   <p>Already had an account? <a href="/loginPage" id="sign">SignIn</a></p>
-  
-</form:form>
-
-    <footer>Flight Reservation System 2024</footer>
+        </div>
+       
+        <div class="form-group">
+            <label for="pass1" class="form-label">Enter New Password:</label>
+            <form:input type="password" id="pass1" path="password" class="form-control" placeholder="Password" />
+        </div>
+        <div class="form-group">
+            <label for="pass2" class="form-label">Re-type Password:</label>
+            <input type="password" id="pass2" class="form-control" placeholder="Re-type Password" />
+        </div>
+         <div class="form-group">
+            <label for="type" class="form-label">Select User's Type:</label>
+            <form:input list="types" id="type" path="type" class="form-control" placeholder="User Type" />
+            <datalist id="types">
+                <option value="Customer"></option>
+                <option value="Admin"></option>
+            </datalist>
+        </div>
+        <button type="button" class="btn btn-primary btn-block" onclick="passwordCheck()">Submit</button>
+        <button type="reset" class="btn btn-secondary btn-block">Reset</button>
+    </form:form>
+    <footer>
+        Already have an account? <a href="/loginPage">Login</a>
+    </footer>
 </div>
 </body>
 </html>

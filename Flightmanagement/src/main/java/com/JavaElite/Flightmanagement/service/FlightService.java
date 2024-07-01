@@ -18,7 +18,7 @@ private RouteDao routeDao;
 		Route route = routeDao.findRouteById(flight.getRouteId());
 		String sourceCode = route.getDestinationAirportCode();
 		String destinationCode = route.getSourceAirportCode();
-		Route newRouteId = routeDao.findRouteBySourceAndDestionation (sourceCode, destinationCode);
+		Route newRouteId = routeDao.findRouteBySourceAndDestionation(sourceCode, destinationCode);
 		return new Flight ();
 	}
 }

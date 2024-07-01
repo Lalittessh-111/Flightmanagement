@@ -30,15 +30,14 @@ public class AirportDaoImpl implements AirportDao {
 	public Airport findAirportById(String id) {
 		return repository.findById(id).get();
 	}
-	
+	  
 	@Override
 	public List<String> findAllAirportLocations(){
 		return repository.FindAllAirportCodes();
 	}
 	@Override
 	public String findAirportCodeByLocation(Object getSourceAirportCode) {
-		// TODO Auto-generated method stub
-		return null;
+		return repository.findAirportCodeByLocation(null);
 	}
 
 

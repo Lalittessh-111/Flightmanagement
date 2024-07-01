@@ -75,7 +75,7 @@
 
 <div align="center">
 <h3>
-<form:form action="/flight" method="post" modelAttribute="flightRecord">
+<form:form action="/flight" method="post" modelAttribute="FlightRecord">
 <table>
 <tr>
 <td>Enter Flight ID :</td>

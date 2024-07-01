@@ -51,12 +51,14 @@ public class RouteController {
  		 String destination=route1.getDestinationAirportCode().toUpperCase();
  		 route1.setSourceAirportCode(source);
  		 route1.setDestinationAirportCode(destination);
+ 		 route1.setFair(Fair);
+ 		 route1.setRouteId(101L);
+ 		 routeDao.save(route1);
  		 String sourceCode=airportDao.findAirportCodeByLocation(route1.getSourceAirportCode());
  		 String destinationCode=airportDao.findAirportCodeByLocation(route1.getDestinationAirportCode());
  		 route1.setSourceAirportCode(sourceCode);
  		 route1.setDestinationAirportCode(destinationCode);
  		 Route route2=routeService.createReturnRoute(route1,Fair);
- 		 routeDao.save(route1);
  		 routeDao.save(route2);
  		 return new ModelAndView("/index");
  	 }
@@ -64,7 +66,7 @@ public class RouteController {
  	public ModelAndView showRouteRecordPage() {
  		List<Route> routeList=routeDao.findAllRoutes();
  		ModelAndView mv=new ModelAndView("RouteRecordPage");
- 		mv.addObject("RouteRecord",routeList);
+ 		mv.addObject("Acc",routeList);
  		return mv;
 }
  	 @GetMapping("/flight")
@@ -88,7 +90,7 @@ public class RouteController {
      public ModelAndView showFlightRecordPage() {
      	List<Flight> flightList=FlightDao.findAllFlights();
          ModelAndView mv = new ModelAndView("FlightRecordPage");
-         mv.addObject("flightList", flightList);
+         mv.addObject("flight", flightList);
          return mv;
      }
 

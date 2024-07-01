@@ -80,7 +80,7 @@
             </tr>
         </thead>
         <tbody>
-            <c:forEach items="${flightdetails}" var="data">
+            <c:forEach items="${flight}" var="data">
                 <tr>
                     <td>${data.flightNumber}</td>
                     <td>${data.carrierName}</td>

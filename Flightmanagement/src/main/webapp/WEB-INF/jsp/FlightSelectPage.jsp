@@ -67,7 +67,7 @@
 <body>
 <div class="form-container">
     <h2>Flight Booking</h2>
-    <form action="/flight-search" method="post">
+    <form action="/flights-search" method="post">
         <label for="fromCity">Select From City:</label>
         <input type="text" id="fromCity" name="fromCity" required>
         

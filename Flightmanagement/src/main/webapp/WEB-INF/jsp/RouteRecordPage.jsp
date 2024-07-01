@@ -52,7 +52,7 @@
                 <th>Target Airport Code</th>
                 <th>RouteFair</th>
             </tr>
-			<c:forEach items="${routeList}" var="route">
+			<c:forEach items="${Acc}" var="route">
  				<tr>
  				<td>${route.routeId}</td>
                 <td>${route.sourceAirportCode}</td>

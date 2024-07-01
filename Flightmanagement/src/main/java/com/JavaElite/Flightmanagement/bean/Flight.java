@@ -6,6 +6,12 @@ import javax.persistence.Id;
 @Entity
 public class Flight {
 
+	@Override
+	public String toString() {
+		return "Flight [flightNumber=" + flightNumber + ", airline=" + airline + ", routeId=" + routeId
+				+ ", seatCapacity=" + seatCapacity + ", departure=" + departure + ", arrival=" + arrival
+				+ ", CarrierName=" + CarrierName + "]";
+	}
 	@Id
 	private Long flightNumber;
 	private String airline;

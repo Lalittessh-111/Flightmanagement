@@ -117,6 +117,7 @@
 </tr>
 <tr>
 <td>Enter Route Fair:</td>
+
 <td><form:input path="fair"/></td>
 </tr>
 </table>
