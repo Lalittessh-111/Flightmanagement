@@ -4,9 +4,14 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Error</title>
 </head>
 <body>
-
+<div align="center">
+<h1 style="color:red">
+${errorMessage}
+</h1>
+<h2><a href="/flight-search">Click Here to Re-Enter</a></h2>
+</div>
 </body>
 </html>

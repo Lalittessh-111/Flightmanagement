@@ -34,7 +34,6 @@ public class FlightUserService implements UserDetailsService {
         return user;
     }
 
-    // Add the findByUsername method
     public FlightUser findByUsername(String username) throws UsernameNotFoundException {
         return repository.findByUsername(username).orElseThrow(() -> new UsernameNotFoundException("User not found"));
     }

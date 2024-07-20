@@ -9,7 +9,7 @@ public  interface AirportDao {
 	public Airport findAirportById(String id);
 	public List<Airport>  findAllAirports();
     public List<String> findAllAirportLocations();
-	public String findAirportCodeByLocation(Object getSourceAirportCode);
+	public String findAirportCodeByLocation(String Location);
 
 	
 }

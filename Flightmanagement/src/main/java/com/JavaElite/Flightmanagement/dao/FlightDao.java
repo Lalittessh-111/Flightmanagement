@@ -6,9 +6,11 @@ import com.JavaElite.Flightmanagement.bean.Flight;
 
 public interface FlightDao {
 	public void save(Flight flight);
-	public static List<Flight> findAllFlights() {
-		return null;
+	public List<Flight> findAllFlights();
+	public List<Flight>findFlightsByRouteId(Long routeId);
+	public Flight findFlightById(Long id);
+
 	}
-}
+
 
 

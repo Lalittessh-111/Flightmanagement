@@ -17,6 +17,9 @@ public class FlightUser extends User {
 	private String username;
 	private String password;
 	private String type;
+	public FlightUser() {
+		super("abc", "pqr", new ArrayList<>());
+	}
 
 	public String getUsername() {
 		return username;
@@ -54,7 +57,5 @@ public class FlightUser extends User {
 		return "FlightUser [username=" + username + ", password=" + password + ", type=" + type + "]";
 	}
 
-	public FlightUser() {
-		super("abc", "pqr", new ArrayList<>());
-	}
+	
 }

@@ -37,10 +37,10 @@ public class AirportController {
         String stg=airport.getAirportLocation().toUpperCase();
         airport.setAirportLocation(stg);
         airportDao.addAirport(airport);
-        return new ModelAndView("index");
+        return new ModelAndView("redirect:/index");
     }
 
-    @GetMapping("/airportShow")
+    @GetMapping("/airport/{id}")
     public ModelAndView showAirportShowPage(@PathVariable ("id") String id) {
        Airport airport = airportDao.findAirportById(id);
         ModelAndView mv = new ModelAndView("airportShowPage");

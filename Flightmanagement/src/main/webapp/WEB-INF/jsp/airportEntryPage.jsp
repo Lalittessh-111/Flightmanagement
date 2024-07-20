@@ -9,7 +9,10 @@
 <style>
     body {
         font-family: Arial, sans-serif;
-        background-color: #f4f4f4;
+        background-image: url('https://i.pinimg.com/736x/68/24/55/682455f40ff450c3ce887cb4d0e51b31.jpg'); 
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -17,15 +20,16 @@
         margin: 0;
     }
     .container {
-        background-color: #fff;
+        background-color: rgba(255, 255, 255, 0.8); /* Slight transparency */
         padding: 20px;
         border-radius: 8px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
         width: 400px;
     }
     h2 {
         margin-bottom: 20px;
         text-align: center;
+        color: #333;
     }
     .form-group {
         margin-bottom: 15px;
@@ -34,6 +38,7 @@
         display: block;
         margin-bottom: 5px;
         font-weight: bold;
+        color: #333;
     }
     input[type="text"] {
         width: calc(100% - 16px); /* Adjust for padding */
@@ -66,6 +71,15 @@
         text-align: center;
         margin-top: 10px;
         display: none;
+    }
+    a {
+        display: inline-block;
+        margin-top: 15px;
+        color: #007bff;
+        text-decoration: none;
+    }
+    a:hover {
+        text-decoration: underline;
     }
 </style>
 </head>

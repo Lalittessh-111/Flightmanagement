@@ -9,14 +9,31 @@
 <style>
     body {
         font-family: Arial, sans-serif;
-        background-color: #f8f9fa;
+        background-image: url('https://i.pinimg.com/564x/18/50/6a/18506a069f8b2b715bd7da3866f05f06.jpg'); /* Add the background image */
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
         margin: 0;
         padding: 0;
-        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    .form-container {
+        background-color: rgba(255, 255, 255, 0.9);
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        width: 80%;
+        max-width: 600px;
+        text-align: left;
     }
 
     h3 {
         color: #333;
+        text-align: center;
     }
 
     table {
@@ -72,66 +89,60 @@
 </style>
 </head>
 <body>
-
-<div align="center">
-<h3>
+<div class="form-container">
+<h3>Insert Flight Record</h3>
 <form:form action="/flight" method="post" modelAttribute="FlightRecord">
-<table>
-<tr>
-<td>Enter Flight ID :</td>
-<td><input path="flightNumber" type="text" /></td>
-</tr>
-
-<tr>
-<td>Enter Airlines Name :</td>
-<td><input  type="text" /></td>
-</tr>
-
-<tr>
-<td>Select Route ID :</td>
-<td><input path="routeId" list="routes" type="text" /></td>
-</tr>
-
-<datalist id="routes">
-<c:forEach items="${routeList}" var="route">
-<option value="${route}"></option>
-</c:forEach>
-</datalist>
-
-<tr>
-<td>Enter Seat Capacity :</td>
-<td><input  type="text" /></td>
-</tr>
-
-<tr>
-<td>Enter Departure Time :</td>
-<td><input type="text" /></td>
-</tr>
-
-<tr>
-<td>Enter Arrival Time :</td>
-<td><input type="text" name="Arrival" /></td>
-</tr>
-
-<tr>
-<td>Enter Return Flight Departure Time:</td>
-<td><input type="text" name="dtime" /></td>
-</tr>
-
-<tr>
-<td>Enter Return Flight Arrival Time:</td>
-<td><input type="text" name="atime" /></td>
-</tr>
-
-</table>   
-<div class="button-container">
-<button type="submit">Submit</button>
-<button type="reset">Reset</button>
-</div>
+    <table>
+        <tr>
+            <td>Enter Flight Id:</td>
+            <td><form:input path="flightNumber"/></td>
+        </tr>
+        <tr>
+            <td>Enter Airlines Name:</td>
+            <td><form:input path="carrierName"/></td>
+        </tr>
+        <tr>
+            <td>Select Route Id</td>
+            <td>
+                <form:input list="routes" path="routeId"/>
+                <datalist id="routes">
+                    <c:forEach items="${routeList}" var="route">
+                        <option value="${route}"></option>
+                    </c:forEach>
+                </datalist>
+            </td>
+        </tr>
+        <tr>
+            <td>Enter Seat Capacity:</td>
+            <td><form:input path="seatCapacity"/></td>
+        </tr>
+        <tr>
+            <td>Enter Departure Time:</td>
+            <td><form:input path="departure"/></td>
+        </tr>
+        <tr>
+            <td>Enter Arrival Time:</td>
+            <td><form:input path="arrival"/></td>
+        </tr>
+    </table>
+    <form:hidden path="seatBooked" value="0"/>
+    <hr size="5" color="lightgreen"/>
+    <table>
+        <tr>
+            <td>Enter Return Flight's Departure Time:</td>
+            <td><input type="text" name="dtime"/></td>
+        </tr>
+        <tr>
+            <td>Enter Return Flight's Arrival Time:</td>
+            <td><input type="text" name="atime"/></td>
+        </tr>
+    </table>
+    <div class="button-container">
+        <button type="submit">Submit</button>
+        <button type="reset">Reset</button>
+    </div>
 </form:form>
-</h3>
 <a href="index">Back to Home</a>
 </div>
-
 </body>
 </html>

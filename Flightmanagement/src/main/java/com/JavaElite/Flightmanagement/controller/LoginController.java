@@ -17,14 +17,19 @@ import com.JavaElite.Flightmanagement.service.FlightUserService;
 public class LoginController {
 
     @Autowired
-    private FlightUserService service;
+    private FlightUserService service;  
     
     @Autowired
     private BCryptPasswordEncoder bCrypt;
-    
     @GetMapping("/index")
     public ModelAndView showIndexPage() {
-        return new ModelAndView("index");
+    	String indexPage="";
+    	String userType=service.getType();
+    		if(userType.equalsIgnoreCase("Admin"))
+    		indexPage="index1";
+    		else if(userType.equalsIgnoreCase("Customer"))
+		indexPage="index2";
+        return new ModelAndView(indexPage);
     }
 
     @GetMapping("/register")
@@ -54,7 +59,7 @@ public class LoginController {
 
     @GetMapping("/loginerror")
     public ModelAndView showLoginErrorPage() {
-        ModelAndView mv = new ModelAndView("loginPage");
+        ModelAndView mv = new ModelAndView("loginError");
         mv.addObject("error", "Invalid username or password.");
         return mv;
     }

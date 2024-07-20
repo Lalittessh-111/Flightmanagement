@@ -9,18 +9,30 @@
 <style>
     body {
         font-family: Arial, sans-serif;
-        margin: 50px;
+        background-image: url('https://i.pinimg.com/564x/c1/ac/90/c1ac901d42a16b48479c2407b00881b0.jpg'); /* Add the background image */
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
     }
     .table-container {
+        background-color: rgba(255, 255, 255, 0.9); /* Slight transparency for better readability */
         text-align: center;
         margin: 20px auto;
         width: 60%;
         border: 1px solid #000;
-        padding: 10px;
+        padding: 20px;
         box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        border-radius: 8px;
     }
     h2 {
         margin-bottom: 20px;
+        color: #333;
     }
     table {
         width: 100%;
@@ -34,9 +46,17 @@
     th {
         background-color: #f2f2f2;
     }
-    button {
-        padding: 10px 15px;
-        cursor: pointer;
+    a {
+        display: inline-block;
+        padding: 10px 20px;
+        text-decoration: none;
+        color: #fff;
+        background-color: #007bff;
+        border-radius: 4px;
+        transition: background-color 0.3s;
+    }
+    a:hover {
+        background-color: #0056b3;
     }
 </style>
 </head>
@@ -46,20 +66,20 @@
     <h2>All Routes</h2>
     <br/>
     <table>
+        <tr>
+            <th>Route Number</th>
+            <th>Source Airport Code</th>
+            <th>Destination Airport Code</th>
+            <th>Route Fair</th>
+        </tr>
+        <c:forEach items="${abc}" var="route">
             <tr>
-                <th>Route Number</th>
-                <th>Source Airport Code</th>
-                <th>Target Airport Code</th>
-                <th>RouteFair</th>
-            </tr>
-			<c:forEach items="${Acc}" var="route">
- 				<tr>
- 				<td>${route.routeId}</td>
+                <td>${route.routeId}</td>
                 <td>${route.sourceAirportCode}</td>
                 <td>${route.destinationAirportCode}</td>
-                <td>${route.fair}</td>
-                </tr>
-                </c:forEach>
+                <td>${route.fare}</td>
+            </tr>
+        </c:forEach>
     </table>
     <br/><br/>
     <a href="/index">Return</a>

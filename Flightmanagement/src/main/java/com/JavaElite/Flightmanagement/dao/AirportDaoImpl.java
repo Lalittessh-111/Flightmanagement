@@ -17,12 +17,10 @@ public class AirportDaoImpl implements AirportDao {
 	@Override
 	public void addAirport(Airport airport) {
 		repository.save(airport);
-		// TODO Auto-generated method stub
 
 	}
 	@Override
 	public List<Airport> findAllAirports() {
-		// TODO Auto-generated method stub
 		return repository.findAll();
 	}
 
@@ -36,9 +34,8 @@ public class AirportDaoImpl implements AirportDao {
 		return repository.FindAllAirportCodes();
 	}
 	@Override
-	public String findAirportCodeByLocation(Object getSourceAirportCode) {
-		return repository.findAirportCodeByLocation(null);
+	public String findAirportCodeByLocation(String Location) {
+		return repository.findAirportCodeByLocation(Location);
 	}
-
 
 }

@@ -9,7 +9,10 @@
 <style>
     body {
         font-family: Arial, sans-serif;
-        background-color: #f4f4f4;
+        background-image: url('https://i.pinimg.com/564x/55/b8/b0/55b8b0ecda0d1c98948268f11e7afec2.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
         margin: 0;
         padding: 0;
         display: flex;
@@ -19,7 +22,7 @@
     }
 
     .form-container {
-        background-color: #fff;
+        background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent for better readability */
         padding: 20px;
         border-radius: 8px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -62,12 +65,24 @@
     button:hover {
         background-color: #0056b3;
     }
+
+    a {
+        display: block;
+        text-align: center;
+        margin-top: 20px;
+        text-decoration: none;
+        color: #007bff;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
 </style>
 </head>
 <body>
 <div class="form-container">
     <h2>Flight Booking</h2>
-    <form action="/flights-search" method="post">
+    <form action="/flight-search" method="post">
         <label for="fromCity">Select From City:</label>
         <input type="text" id="fromCity" name="fromCity" required>
         

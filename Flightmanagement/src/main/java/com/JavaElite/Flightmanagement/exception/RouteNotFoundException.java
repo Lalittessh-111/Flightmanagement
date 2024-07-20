@@ -1,6 +1,6 @@
 package com.JavaElite.Flightmanagement.exception;
 
-public class RouteException extends RuntimeException{
+public class RouteNotFoundException extends RuntimeException{
 	static final long serialVersionUID=1L;
 
 }

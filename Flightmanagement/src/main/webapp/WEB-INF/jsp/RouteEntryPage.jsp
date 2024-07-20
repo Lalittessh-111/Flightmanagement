@@ -9,7 +9,10 @@
 <style>
     body {
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        background-color: #f2f2f2;
+        background-image: url('https://i.pinimg.com/564x/9f/5d/34/9f5d340bcbf80d8454673f7377e04758.jpg'); /* Add the background image */
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
         margin: 0;
         padding: 0;
         display: flex;
@@ -22,7 +25,7 @@
         width: 100%;
         max-width: 600px;
         margin: 0 auto;
-        background-color: #fff;
+        background-color: rgba(255, 255, 255, 0.8); /* Slight transparency for better readability */
         padding: 20px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         border-radius: 8px;
@@ -117,8 +120,7 @@
 </tr>
 <tr>
 <td>Enter Route Fair:</td>
-
-<td><form:input path="fair"/></td>
+<td><form:input path="fare"/></td>
 </tr>
 </table>
 <div class="button-container">

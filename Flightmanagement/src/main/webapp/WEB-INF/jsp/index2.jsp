@@ -80,30 +80,7 @@
     <div class="content">
         <h1 id="h11">Welcome to the Flight Management System</h1>
     </div>
-   
-  
-    <div class="dropdown">
-<button class="dropbtn">Airport </button>
-<div class="dropdown-content">
-<a href="/airport">Airport Addition</a>
-<a href="/airports">Airport Records</a>
-</div>
-</div>
  <div class="dropdown">
-        <button class="dropbtn">Route</button>
-        <div class="dropdown-content">
-            <a href="/Route">Route Addition</a>
-            <a href="/Routes">Routes Records</a>
-        </div>
-    </div>
-<div class="dropdown">
-        <button class="dropbtn">Flight</button>
-	<div class="dropdown-content">
-            <a href="/flight">Flight Addition</a>
-            <a href="/flights">Flight Records</a>
-        </div>
-        </div>
-<div class="dropdown">
         <button class="dropbtn">Flight Booking</button>
 	<div class="dropdown-content">
             <a href="/flight-search">Flight Search</a>
@@ -115,4 +92,3 @@
 
 </body>
 </html>
-

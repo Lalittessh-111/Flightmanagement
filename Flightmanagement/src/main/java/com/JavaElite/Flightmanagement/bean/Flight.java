@@ -3,40 +3,50 @@ package com.JavaElite.Flightmanagement.bean;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
+
 @Entity
 public class Flight {
+    @Id
+    private Long flightNumber;
+    private String carrierName;
+    private Long routeId;
+    private Integer seatCapacity;
+    private String departure ;
+    private String arrival;
+    private Integer seatBooked;
+    public Flight() {
+		super();
+	}
 
 	@Override
 	public String toString() {
-		return "Flight [flightNumber=" + flightNumber + ", airline=" + airline + ", routeId=" + routeId
-				+ ", seatCapacity=" + seatCapacity + ", departure=" + departure + ", arrival=" + arrival
-				+ ", CarrierName=" + CarrierName + "]";
+		return "Flight [flightNumber=" + flightNumber + ", carrierName=" + carrierName + ", routeId=" + routeId
+				+ ", seatCapacity=" + seatCapacity + ", departure=" + departure + ", arrival=" + arrival + "]";
 	}
-	@Id
-	private Long flightNumber;
-	private String airline;
-	private Long routeId;
-	private Integer seatCapacity;
-	private String departure;
-	private String arrival;
-	private String CarrierName;
-	public String getCarrierName() {
-		return CarrierName;
+
+	public Flight(Long flightNumber, String carrierName, Long routeId, Integer seatCapacity, String departure,
+			String arrival) {
+		super();
+		this.flightNumber = flightNumber;
+		this.carrierName = carrierName;
+		this.routeId = routeId;
+		this.seatCapacity = seatCapacity;
+		this.departure = departure;
+		this.arrival = arrival;
+		this.seatBooked=0;
 	}
-	public void setCarrierName(String carrierName) {
-		CarrierName = carrierName;
-	}
+
 	public Long getFlightNumber() {
 		return flightNumber;
 	}
 	public void setFlightNumber(Long flightNumber) {
 		this.flightNumber = flightNumber;
 	}
-	public String getAirline() {
-		return airline;
+	public String getCarrierName() {
+		return carrierName;
 	}
-	public void setAirline(String airline) {
-		this.airline = airline;
+	public void setCarrierName(String carrierName) {
+		this.carrierName = carrierName;
 	}
 	public Long getRouteId() {
 		return routeId;
@@ -63,6 +73,11 @@ public class Flight {
 		this.arrival = arrival;
 	}
 
-	
-}
-	
+	public Integer getSeatBooked() {
+		return seatBooked;
+	}
+
+	public void setSeatBooked(int seatBooked) {
+		this.seatBooked = seatBooked;
+	}
+}	

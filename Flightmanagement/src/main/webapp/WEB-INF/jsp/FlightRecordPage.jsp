@@ -9,9 +9,15 @@
 <style>
     body {
         font-family: Arial, sans-serif;
-        background-color: #f8f9fa;
+        background-image: url('https://i.pinimg.com/474x/2b/78/33/2b7833d100301d3a216095212c631771.jpg');
+        background-size: cover;
+        background-position: center;
         margin: 0;
         padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
         text-align: center;
     }
 
@@ -24,6 +30,9 @@
         margin: 20px auto;
         border-collapse: collapse;
         box-shadow: 0 2px 3px rgba(0,0,0,0.1);
+        background-color: rgba(255, 255, 255, 0.8); /* Slightly transparent background for readability */
+        border-radius: 8px;
+        overflow: hidden;
     }
 
     table, th, td {
@@ -77,6 +86,7 @@
                 <th>Seat Capacity</th>
                 <th>Departure</th>
                 <th>Arrival</th>
+                <th>Seat Available</th>
             </tr>
         </thead>
         <tbody>
@@ -88,6 +98,8 @@
                     <td>${data.seatCapacity}</td>
                     <td>${data.departure}</td>
                     <td>${data.arrival}</td>
+                     <c:set var="seatAvailable" scope="session" value="${data.seatCapacity-data.seatBooked}"/>
+                     <td>${seatAvailable}</td>
                 </tr>
             </c:forEach>
         </tbody>

@@ -9,19 +9,26 @@
 <style>
     body {
         font-family: Arial, sans-serif;
-        background-color: #f4f4f4;
+        background-image: url('https://i.pinimg.com/736x/e4/bf/49/e4bf49094d7aebd000db23af984ea3fb.jpg'); /* Add the background image */
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
         margin: 0;
         padding: 20px;
+        color: #fff;
     }
     .container {
-        background-color: #fff;
+        background-color: rgba(255, 255, 255, 0.8); /* Slight transparency */
         padding: 20px 30px;
         border-radius: 8px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        max-width: 80%; /* Decrease the size of the table container */
+        margin: auto;
     }
-    h2 {
+    h2, h1 {
         margin-bottom: 20px;
         text-align: center;
+          color: black;
     }
     table {
         width: 100%;
@@ -33,9 +40,11 @@
     th, td {
         padding: 10px;
         text-align: left;
+        color: #333;
     }
     th {
         background-color: #f4f4f4;
+        color: #000; /* Make the headers black */
     }
     a {
         text-decoration: none;
@@ -44,10 +53,13 @@
         margin-top: 10px;
         color: #007bff;
     }
+    a:hover {
+        text-decoration: underline;
+    }
 </style>
 </head>
 <body>
-<div align="center">
+<div align="center" class="container">
 <h1><u><i>All Airports</i></u></h1>
 <br/>
 <table>
@@ -67,7 +79,6 @@
 </table>
 <br/><br/>
 <a href="/index">Return</a>
-</h3>
 </div>
 </body>
 </html>
