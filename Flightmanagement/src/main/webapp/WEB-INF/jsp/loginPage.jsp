@@ -8,15 +8,19 @@
 <meta charset="UTF-8">
 <title>SignIn Page</title>
 <style>
-    body {
+     body {
         font-family: Arial, sans-serif;
         background-image: linear-gradient(45deg, red, blue);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
         margin: 0;
         padding: 0;
         display: flex;
         justify-content: center;
         align-items: center;
         height: 100vh;
+        color: white;
     }
     .container {
         text-align: center;
@@ -91,7 +95,7 @@
         <p>Don't have an account? <a href="/register">Register</a></p>
     </form:form>
 
-    <footer>Flight Reservation System 2024 | <a href="aboutUs.jsp">About Us</a></footer>
+    <footer>Flight Reservation System 2024 </a></footer>
 </div>
 </body>
 </html>

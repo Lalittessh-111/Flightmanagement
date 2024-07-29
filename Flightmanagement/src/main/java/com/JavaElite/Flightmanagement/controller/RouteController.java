@@ -2,6 +2,7 @@ package com.JavaElite.Flightmanagement.controller;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -129,9 +130,32 @@ private Double fair;
 	ModelAndView mv=new ModelAndView("routeErrorPage");
 	mv.addObject("errorMessage",message);
 	return mv;
+	}
+	@PostMapping("/CancelRoute")
+    public ModelAndView cancelRoute(@RequestParam("RouteNumber") Long RouteNumber, Model model) {
+        boolean success = routeService.cancelRoute(RouteNumber);
+        if (success) {
+            model.addAttribute("message", "Route cancelled successfully.");
+        } else {
+            model.addAttribute("message", "Route cancellation failed.");
+        }
+        ModelAndView mv = new ModelAndView("cancellationRoute");
+        return mv;
+    }
+	@PostMapping("/CancelFlight")
+	public ModelAndView cancelFlight(@RequestParam("FlightNumber") Long FlightNumber, Model model) {
+	    boolean success = flightService.cancelFlight(FlightNumber);
+	    if (success) {
+	        model.addAttribute("message", "Flight cancelled successfully.");
+	    } else {
+	        model.addAttribute("message", "Flight cancellation failed.");
+	    }
+	    ModelAndView mv = new ModelAndView("cancellationRoute");
+	    return mv;
+	}
+
+}
 	
-	}
-	}
 	
 
 

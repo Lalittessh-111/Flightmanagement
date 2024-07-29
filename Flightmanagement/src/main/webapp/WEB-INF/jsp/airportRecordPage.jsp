@@ -28,7 +28,7 @@
     h2, h1 {
         margin-bottom: 20px;
         text-align: center;
-          color: black;
+        color: black;
     }
     table {
         width: 100%;
@@ -56,6 +56,17 @@
     a:hover {
         text-decoration: underline;
     }
+    .cancel-button {
+        background-color: #dc3545;
+        color: white;
+        border: none;
+        padding: 5px 10px;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    .cancel-button:hover {
+        background-color: #c82333;
+    }
 </style>
 </head>
 <body>
@@ -67,12 +78,14 @@
 <th>Airport Code</th>
 <th>Airport Location</th>
 <th>Enquire</th>
+
 </tr>
 <c:forEach items="${abc}" var="airport">
 <tr>
 <td>${airport.airportCode}</td>
 <td>${airport.airportLocation}</td>
 <td><a href="/airport/${airport.airportCode}">Enquire</a></td>
+
 </tr>
 </c:forEach>
 

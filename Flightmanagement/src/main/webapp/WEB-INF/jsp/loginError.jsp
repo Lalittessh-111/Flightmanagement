@@ -43,6 +43,7 @@
 <body>
     <div class="container">
         <h2>Login Error</h2>
+        <h3>You have entered wrong credentials</h3>
         <p>${errorMessage}</p>
         <a href="/loginpage">Back to Login</a>
     </div>

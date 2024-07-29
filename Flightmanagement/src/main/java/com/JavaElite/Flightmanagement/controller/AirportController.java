@@ -53,7 +53,6 @@ public class AirportController {
     	List<Airport> airportList=airportDao.findAllAirports();
         ModelAndView mv = new ModelAndView("airportRecordPage");
         mv.addObject("abc",airportList);
-
         return mv;
 
     }

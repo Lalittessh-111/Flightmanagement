@@ -116,7 +116,10 @@
         </tbody>
     </table>
     <p><strong>Total Fare:</strong> ${totalFare}</p>
-
+<form action="/cancelTicket" method="post">
+  <input type="hidden" name="ticketNumber" value="${ticket.ticketNumber}"/>
+  <button type="submit" class="cancel-button">Cancel Ticket</button>
+</form>
     <a href="/index">Home</a>
 </div>
 </body>

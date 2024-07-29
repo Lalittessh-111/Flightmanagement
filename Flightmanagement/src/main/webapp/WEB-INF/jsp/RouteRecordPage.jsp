@@ -58,6 +58,17 @@
     a:hover {
         background-color: #0056b3;
     }
+    .cancel-button {
+        background-color: #dc3545;
+        color: white;
+        border: none;
+        padding: 5px 10px;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    .cancel-button:hover {
+        background-color: #c82333;
+    }
 </style>
 </head>
 <body>
@@ -70,7 +81,8 @@
             <th>Route Number</th>
             <th>Source Airport Code</th>
             <th>Destination Airport Code</th>
-            <th>Route Fair</th>
+            <th>Route Fare</th>
+            <th>Action</th>
         </tr>
         <c:forEach items="${abc}" var="route">
             <tr>
@@ -78,9 +90,16 @@
                 <td>${route.sourceAirportCode}</td>
                 <td>${route.destinationAirportCode}</td>
                 <td>${route.fare}</td>
+                <td>
+                    <form action="/CancelRoute" method="post">
+                        <input type="hidden" name="RouteNumber" value="${route.routeId}"/>
+                        <button type="submit" class="cancel-button">Cancel</button>
+                    </form>
+                </td>
             </tr>
         </c:forEach>
     </table>
+    
     <br/><br/>
     <a href="/index">Return</a>
 </div>

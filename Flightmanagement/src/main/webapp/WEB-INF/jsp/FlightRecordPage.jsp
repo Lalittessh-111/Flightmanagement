@@ -87,6 +87,7 @@
                 <th>Departure</th>
                 <th>Arrival</th>
                 <th>Seat Available</th>
+                <th>Action</th>
             </tr>
         </thead>
         <tbody>
@@ -100,6 +101,13 @@
                     <td>${data.arrival}</td>
                      <c:set var="seatAvailable" scope="session" value="${data.seatCapacity-data.seatBooked}"/>
                      <td>${seatAvailable}</td>
+                      <td>
+<form action="/CancelFlight" method="post">
+    <input type="hidden" name="FlightNumber" value="${data.flightNumber}"/>
+    <button type="submit" class="cancel-button">Cancel</button>
+</form>
+
+                </td>
                 </tr>
             </c:forEach>
         </tbody>

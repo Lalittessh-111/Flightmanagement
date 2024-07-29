@@ -100,10 +100,6 @@
             <label for="username" class="form-label">Enter New User Id:</label>
             <form:input path="username" id="username" class="form-control" placeholder="Username" />
         </div>
-           <div class="form-group">
-        <label for="email"> </label>
-  <input type="email" id="email" name="email" required placeholder="Enter Email">
-        </div>
        
         <div class="form-group">
             <label for="pass1" class="form-label">Enter New Password:</label>
